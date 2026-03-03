@@ -1,0 +1,17 @@
+FROM node:20
+
+# Set working directory to the frontend folder inside the container
+WORKDIR /favtube/frontend
+
+# Copy frontend package metadata and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy the frontend source
+COPY . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# Vite devサーバをコンテナから公開
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

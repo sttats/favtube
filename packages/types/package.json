@@ -1,0 +1,10 @@
+{
+  "name": "@favtube/types",
+  "version": "0.0.0",
+  "description": "Shared TypeScript types for FavTube",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.d.ts"
+  ]
+}
