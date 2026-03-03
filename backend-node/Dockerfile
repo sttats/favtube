@@ -3,14 +3,14 @@ FROM node:20
 WORKDIR /app
 
 # 依存インストール（キャッシュ活用）
-# ルートコンテキストなので backend-node/ と packages/types/ を含む
 COPY backend-node/package*.json ./
-COPY packages/types /packages/types
-
+COPY packages/ /packages/
 RUN npm install
 
 # ソースをコピーしてビルド
-COPY backend-node/ .
+COPY backend-node/src ./src
+COPY backend-node/tsconfig.json ./
+
 RUN npx tsc
 
 EXPOSE 3000
