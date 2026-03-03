@@ -1,7 +1,7 @@
 import express from 'express'; 
 import { fileURLToPath } from 'url';
 import path from 'path';
-import type { ApiHello } from '@favtube/types';
+import type { ApiHello } from './types.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

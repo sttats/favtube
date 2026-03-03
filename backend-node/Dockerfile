@@ -3,13 +3,12 @@ FROM node:20
 WORKDIR /app
 
 # 依存インストール（キャッシュ活用）
-COPY backend-node/package*.json ./
-COPY packages/ /packages/
+COPY package*.json ./
 RUN npm install
 
 # ソースをコピーしてビルド
-COPY backend-node/src/ ./src/
-COPY backend-node/tsconfig.json ./
+COPY src/ ./src/
+COPY tsconfig.json ./
 
 RUN npx tsc
 
