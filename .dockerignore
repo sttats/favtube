@@ -1,0 +1,33 @@
+# Node.js
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/.npm
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/.venv/
+**/venv/
+
+# Java / Maven
+**/target/
+
+# Go
+**/vendor/
+
+# C# / .NET
+**/bin/
+**/obj/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+docker-compose.override.yml
+
+# OS / Editor
+**/.DS_Store
+**/.idea/
+**/.vscode/

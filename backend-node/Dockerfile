@@ -8,7 +8,7 @@ COPY packages/ /packages/
 RUN npm install
 
 # ソースをコピーしてビルド
-COPY backend-node/src ./src
+COPY backend-node/src/ ./src/
 COPY backend-node/tsconfig.json ./
 
 RUN npx tsc
