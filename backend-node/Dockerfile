@@ -1,22 +1,17 @@
 FROM node:20
 
-# Use /favtube as the container root to match repository layout
-WORKDIR /favtube
+WORKDIR /app
 
-# Copy backend package metadata and install dependencies in backend
-# Because build context is project root, backend/package*.json exists
-COPY backend-node/package*.json ./backend-node/
-WORKDIR /favtube/backend-node
+# 依存インストール（キャッシュ活用）
+# ルートコンテキストなので backend-node/ と packages/types/ を含む
+COPY backend-node/package*.json ./
+COPY packages/types /packages/types
+
 RUN npm install
 
-# Copy the whole project (frontend, backend, packages) into image
-WORKDIR /favtube
-COPY . .
-
-# Build backend TypeScript and expose port
-WORKDIR /favtube/backend-node
-EXPOSE 3000
+# ソースをコピーしてビルド
+COPY backend-node/ .
 RUN npx tsc
 
-# Run compiled JS in production
-CMD ["node","./dist/index.js"]
+EXPOSE 3000
+CMD ["node", "./dist/index.js"]

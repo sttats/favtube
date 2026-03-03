@@ -7,30 +7,30 @@ services:
       - "3000:3000"
   backend-fastapi:
     build:
-      context: .
-      dockerfile: backend-fastapi/Dockerfile
+      context: ./backend-fastapi
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
   backend-go:
     build:
-      context: .
-      dockerfile: backend-go/Dockerfile
+      context: ./backend-go
+      dockerfile: Dockerfile
     ports:
       - "3002:3002"
   backend-cs:
     build:
-      context: .
-      dockerfile: backend-cs/Dockerfile
+      context: ./backend-cs
+      dockerfile: Dockerfile
     ports:
       - "3003:3003"
 
   backend-java:
     build:
-      context: .
-      dockerfile: backend-java/Dockerfile
+      context: ./backend-java
+      dockerfile: Dockerfile
     ports:
       - "3004:3004"
-      
+
   frontend:
     build:
       context: ./frontend
